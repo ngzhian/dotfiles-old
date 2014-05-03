@@ -34,6 +34,12 @@ let g:vim_markdown_folding_disabled=1
 set colorcolumn=80,120
 :hi ColorColumn ctermbg=238 " set it to light grey
 
+" shortcuts for buffere manipulation
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> ]B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
+
 
 """"""""""""""""""""""""""""""
 " Shortcuts for saving files "
