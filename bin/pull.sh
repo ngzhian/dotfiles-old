@@ -1,24 +1,24 @@
 ##
 # bin
-cp -r ~/bin ~/dotfiles/.
+cp -rv ~/bin ~/dotfiles/.
 
 # bash
-cp ~/.bash_aliases ~/dotfiles/.
-cp ~/.bashrc ~/dotfiles/.
+cp -v ~/.bash_aliases ~/dotfiles/.
+cp -v ~/.bashrc ~/dotfiles/.
 
 # vim
 #cp -r ~/.vim ~/dotfiles/.
-cp -r ~/.vim/colors ~/dotfiles/.vim/.
-cp ~/.vimrc ~/dotfiles/.
+cp -rv ~/.vim/colors ~/dotfiles/.vim/.
+cp -v ~/.vimrc ~/dotfiles/.
 
 # git
-cp ~/.gitconfig ~/dotfiles/.
+cp -v ~/.gitconfig ~/dotfiles/.
 
 # wm
-cp ~/.xmobarrc ~/dotfiles/.
-cp ~/.xmonad/xmonad.hs ~/dotfiles/.xmonad/xmonad.hs
+cp -v ~/.xmobarrc ~/dotfiles/.
+cp -v ~/.xmonad/xmonad.hs ~/dotfiles/.xmonad/xmonad.hs
 
 # x
-cp ~/.xinitrc ~/dotfiles/.
-cp ~/.Xresources ~/dotfiles/.
+cp -v ~/.xinitrc ~/dotfiles/.
+cp -v ~/.Xresources ~/dotfiles/.
 
