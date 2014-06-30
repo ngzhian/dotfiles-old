@@ -43,6 +43,9 @@ myManageHook = composeAll
   [ className =? "Gimp" --> doFloat
   , className =? "Firefox" --> doShift "2:web"
   , className =? "Iceweasel" --> doShift "2:web"
+  , className =? "Eclipse" --> doShift "3:code"
+  , className =? "sun-tools-jconsole-JConsole" --> doShift "4:stuff"
+  , className =? "sun-tools-jconsole-JConsole" --> doFloat
   ]
 
 -- XMonad gives us 9 workspaces by default, just name the first 4

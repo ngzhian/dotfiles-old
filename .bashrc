@@ -38,12 +38,13 @@ fi
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color) color_prompt=yes;;
+  rxvt-unicode-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+# force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -56,8 +57,47 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+# for displaying git information
+source ~/bin/.git-prompt.sh
+
+# from https://wiki.archlinux.org/index.php/Color_Bash_Prompt
+set_prompt () {
+  Last_Command=$? # Must come first!
+  Blue='\[\e[36m\]'
+  White='\[\e[01;37m\]'
+  Red='\[\e[01;31m\]'
+  Green='\[\e[32m\]'
+  Reset='\[\e[00m\]'
+  FancyX='\342\234\227'
+  Checkmark='\342\234\223'
+
+  # Add a bright white exit status for the last command
+  # PS1="$White\$? "
+  PS1=
+  # If it was successful, print a green check mark. Otherwise, print
+  # a red X.
+  if [[ $Last_Command == 0 ]]; then
+    PS1+="$Green$Checkmark "
+  else
+    PS1+="$Red\$? $FancyX "
+  fi
+  # If root, just print the host in red. Otherwise, print the current user
+  # and host in green.
+  if [[ $EUID == 0 ]]; then
+    PS1+="$Red\\h "
+  else
+    PS1+="$Green\\u@\\h "
+  fi
+  # Print the working directory and prompt marker in blue, and reset
+  # the text color to the default.
+  PS1+="$Blue\\w$Reset\$(__git_ps1) $Blue\\\$$Reset "
+}
+
+PROMPT_COMMAND='set_prompt'
+
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1=PROMPT_COMMAND
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -113,3 +153,5 @@ fi
 stty -ixon
 
 export PATH=$HOME/bin:$HOME/.cabal/bin:$PATH
+export EDITOR=vim
+

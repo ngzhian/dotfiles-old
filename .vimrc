@@ -1,6 +1,20 @@
-execute pathogen#infect()
-syntax on   " enable syntax highlighting
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'godlygeek/tabular'
+Plugin 'bling/vim-airline'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-surround'
+
+call vundle#end()
 filetype plugin indent on " enable fietype-specific indenting and pugins
+
+syntax on   " enable syntax highlighting
 
 let mapleader = ","
 
@@ -19,10 +33,14 @@ set complete=.,w,b,u,U,t,i,d
 
 set scrolloff=5 "keep at least 5 lines above/below
 
+" Sane movements
+nnoremap j gj
+nnoremap k gk
+
 " Search settings
 set hlsearch " highlight all matches of a search
 set incsearch " searches as you type
-"turns off highlight using this key map
+" Turns off highlight using this key map
 map <C-h> :noh<cr>
 " treats pattern as case insenstive when all small letters
 set ignorecase smartcase
@@ -58,7 +76,6 @@ command -nargs=0 -bar Update if &modified
 " Note that this requires terminal to ignore Ctrl-S
 " for most terminal just add this to your .bashrc
 "     stty -ixon
-nnoremap  <C-S> :<C-u>Update<CR>
+nnoremap <C-S> :<C-u>Update<CR>
 inoremap <c-s> <c-o>:Update<CR>
 
-kk

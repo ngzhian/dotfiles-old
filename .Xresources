@@ -1,6 +1,6 @@
 Xft.dpi: 96
 Xft.antialias: true
-Xft.rgba: rgb
+!Xft.rgba: rgb
 Xft.hinting: true
 Xft.hintstyle: hintslight
 
@@ -105,7 +105,7 @@ Xft.hintstyle: hintslight
 ! URxvt*path:               search path
 ! URxvt*backgroundPixmap:   file[;geom]
 ! URxvt*iconFile:           file
-URxvt*font:               xft:dejavu sans mono:size=10
+URxvt*font:               xft:Inconsolata:size=11
 ! URxvt*boldFont:           fontname
 ! URxvt*italicFont:         fontname
 ! URxvt*boldItalicFont:     fontname
@@ -126,7 +126,7 @@ URxvt*font:               xft:dejavu sans mono:size=10
 ! URxvt*internalBorder:     number
 ! URxvt*borderLess:         boolean
 ! URxvt*lineSpace:          number
-URxvt*letterSpace:        0
+! URxvt*letterSpace:        0
 ! URxvt*skipBuiltinGlyphs:  boolean
 ! URxvt*pointerBlankDelay:  number
 ! URxvt*backspacekey:       string
