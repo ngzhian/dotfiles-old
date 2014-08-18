@@ -1,17 +1,5 @@
+execute pathogen#infect()
 set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'godlygeek/tabular'
-Plugin 'bling/vim-airline'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-surround'
-
-call vundle#end()
 filetype plugin indent on " enable fietype-specific indenting and pugins
 
 syntax on   " enable syntax highlighting
