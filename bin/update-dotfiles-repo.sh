@@ -1,4 +1,4 @@
-#!/usr/bash
+#!/usr/bin/bash
 # bin
 cp -rv ~/bin ~/dotfiles/.
 

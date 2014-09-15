@@ -11,7 +11,7 @@ set t_Co=256 " set terminal colors to 256
 
 set smartindent
 set tabstop=4
-set shiftwidth=2
+set shiftwidth=4
 set expandtab
 set number
 
@@ -28,8 +28,16 @@ nnoremap k gk
 " Search settings
 set hlsearch " highlight all matches of a search
 set incsearch " searches as you type
+
 " Turns off highlight using this key map
-map <C-h> :noh<cr>
+map <C-c> :noh<cr>
+
+" Window switching
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
 " treats pattern as case insenstive when all small letters
 set ignorecase smartcase
 
@@ -59,14 +67,13 @@ command -nargs=0 -bar Update if &modified
       \| else
       \|   confirm write
       \| endif
-      \|endif
 
 " Allows saving the file using Ctrl-S in normal and insert mode
 " Note that this requires terminal to ignore Ctrl-S
 " for most terminal just add this to your .bashrc
 "     stty -ixon
-nnoremap <C-S> :<C-u>Update<CR>
-inoremap <c-s> <c-o>:Update<CR>
+nnoremap <C-S> :<C-u>update<CR>
+inoremap <c-s> <c-o>:update<CR>
 
 " NERDTree config
 let NERDTreeChDirMode=2
@@ -74,3 +81,5 @@ let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
 let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
 let NERDTreeShowBookmarks=1
 map <F3> :NERDTreeToggle<CR>
+
+" vim-airline config

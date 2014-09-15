@@ -1,3 +1,7 @@
 [user]
 	name = Ng Zhi An
 	email = ngzhian@gmail.com
+[color]
+	ui = true
+[push]
+	default = simple
