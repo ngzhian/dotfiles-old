@@ -83,3 +83,6 @@ let NERDTreeShowBookmarks=1
 map <F3> :NERDTreeToggle<CR>
 
 " vim-airline config
+
+" Gundo
+nnoremap <F5> :GundoToggle<CR>
