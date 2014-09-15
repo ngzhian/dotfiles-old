@@ -46,6 +46,7 @@ nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> ]B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
 
+set hidden
 
 """"""""""""""""""""""""""""""
 " Shortcuts for saving files "
@@ -67,3 +68,9 @@ command -nargs=0 -bar Update if &modified
 nnoremap <C-S> :<C-u>Update<CR>
 inoremap <c-s> <c-o>:Update<CR>
 
+" NERDTree config
+let NERDTreeChDirMode=2
+let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
+let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
+let NERDTreeShowBookmarks=1
+map <F3> :NERDTreeToggle<CR>

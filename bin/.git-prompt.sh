@@ -85,7 +85,6 @@
 # the colored output of "git status -sb" and are available only when
 # using __git_ps1 for PROMPT_COMMAND or precmd.
 
-
 # check whether printf supports -v
 __git_printf_supports_v=
 printf -v __git_printf_supports_v -- '%s' yes >/dev/null 2>&1
@@ -289,9 +288,6 @@ __git_eread ()
 # In this mode you can request colored hints using GIT_PS1_SHOWCOLORHINTS=true
 __git_ps1 ()
 {
-    local GIT_PS1_SHOWCOLORHINTS=true
-    local GIT_PS1_SHOWDIRTYSTATE=true
-
 	local pcmode=no
 	local detached=no
 	local ps1pc_start='\u@\h:\w '

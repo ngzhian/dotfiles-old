@@ -1,4 +1,4 @@
-##
+#!/usr/bash
 # bin
 cp -rv ~/bin ~/dotfiles/.
 
@@ -15,10 +15,12 @@ cp -v ~/.vimrc ~/dotfiles/.
 cp -v ~/.gitconfig ~/dotfiles/.
 
 # wm
-cp -v ~/.xmobarrc ~/dotfiles/.
-cp -v ~/.xmonad/xmonad.hs ~/dotfiles/.xmonad/xmonad.hs
+# cp -v ~/.xmobarrc ~/dotfiles/.
+# cp -v ~/.xmonad/xmonad.hs ~/dotfiles/.xmonad/xmonad.hs
 
 # x
 cp -v ~/.xinitrc ~/dotfiles/.
 cp -v ~/.Xresources ~/dotfiles/.
 
+# tmux
+cp -v ~/.tmux.conf ~/dotfiles/.

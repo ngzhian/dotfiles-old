@@ -12,4 +12,11 @@ alias lal='ls -Al'
 alias g='git'
 alias gs='git status'
 alias ga='git add'
+alias gc='git commit'
 alias gcm='git commit -m'
+alias gch='git checkout'
+alias gchb='git checkout -b'
+alias gd='git diff'
+
+# tmux
+alias tmux='tmux -2'
