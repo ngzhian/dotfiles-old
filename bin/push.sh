@@ -10,7 +10,7 @@ cp -v -r ~/dotfiles/bin ~/.
 
 # vim
 cp -v ~/dotfiles/.vimrc ~/.
-cp -rv ~/dotfiles/.vim/colors ~/.vim/colors
+cp -rv ~/dotfiles/.vim/colors ~/.vim/
 
 # git
 cp -v ~/dotfiles/.gitconfig ~/.
