@@ -18,6 +18,7 @@ alias gcm='git commit -m'
 alias gch='git checkout'
 alias gchb='git checkout -b'
 alias gd='git diff'
+alias grb='git rebase -i'
 
 # tmux
 alias tmux='tmux -2'
