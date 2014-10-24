@@ -6,6 +6,11 @@ syntax on   " enable syntax highlighting
 
 let mapleader = ","
 
+" source $MYVIMRC reloads the saved $MYVIMRC
+:nmap <Leader>s :source $MYVIMRC<cr>
+" opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
+:nmap <Leader>v :e $MYVIMRC<cr>
+
 colorscheme wombat256mod " awesome color scheme
 set t_Co=256 " set terminal colors to 256
 
@@ -28,6 +33,8 @@ nnoremap k gk
 " Search settings
 set hlsearch " highlight all matches of a search
 set incsearch " searches as you type
+
+set list listchars=tab:»·,trail:·,extends:>,precedes:<
 
 " Turns off highlight using this key map
 map <C-c> :noh<cr>
@@ -56,18 +63,6 @@ nnoremap <silent> ]B :blast<CR>
 
 set hidden
 
-""""""""""""""""""""""""""""""
-" Shortcuts for saving files "
-""""""""""""""""""""""""""""""
-" If the current buffer has never been saved, it will have no name,
-" call the file browser to save it, otherwise just save it.
-command -nargs=0 -bar Update if &modified
-      \| if empty(bufname('%'))
-      \|        browse confirm write
-      \| else
-      \|   confirm write
-      \| endif
-
 " Allows saving the file using Ctrl-S in normal and insert mode
 " Note that this requires terminal to ignore Ctrl-S
 " for most terminal just add this to your .bashrc
@@ -86,3 +81,13 @@ map <F3> :NERDTreeToggle<CR>
 
 " Gundo
 nnoremap <F5> :GundoToggle<CR>
+
+" Trigger configuration. Do not use <tab> if you use
+" https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-x><c-x>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" YouCompleteMe
+nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>g :YcmCompleter GoToDefinition<CR>
