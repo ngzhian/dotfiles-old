@@ -1,3 +1,4 @@
+set enc=utf-8
 execute pathogen#infect()
 set nocompatible
 filetype plugin indent on " enable fietype-specific indenting and pugins
@@ -55,7 +56,7 @@ let g:vim_markdown_folding_disabled=1
 set colorcolumn=80,120
 :hi ColorColumn ctermbg=238 " set it to light grey
 
-" shortcuts for buffere manipulation
+" shortcuts for buffer manipulation
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> ]B :bfirst<CR>
@@ -91,3 +92,12 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " YouCompleteMe
 nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>g :YcmCompleter GoToDefinition<CR>
+
+" Buffers
+nnoremap <leader>q :bufdo :bd<CR>
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+set wildignore+=*.pyc
+
+" For ctrlp
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
