@@ -179,3 +179,5 @@ export WORKON_HOME=$HOME/.virtualenvs
 source `which virtualenvwrapper_lazy.sh`
 
 export GIT_PS1_SHOWSTASHSTATE=1
+
+. ~/bin/django_bash_completion

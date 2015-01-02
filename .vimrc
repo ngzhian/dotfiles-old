@@ -1,6 +1,28 @@
 set enc=utf-8
-execute pathogen#infect()
 set nocompatible
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'SirVer/ultisnips'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'bling/vim-airline'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'sjl/gundo.vim'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-surround'
+
+" ultisnips snippets
+Plugin 'honza/vim-snippets'
+call vundle#end()
 filetype plugin indent on " enable fietype-specific indenting and pugins
 
 syntax on   " enable syntax highlighting
@@ -102,3 +124,8 @@ set wildignore+=*.pyc
 
 " For ctrlp
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
