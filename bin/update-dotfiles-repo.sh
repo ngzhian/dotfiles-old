@@ -13,6 +13,7 @@ cp -v ~/.vimrc ~/dotfiles/.
 
 # git
 cp -v ~/.gitconfig ~/dotfiles/.
+cp -v ~/.gitignore ~/dotfiles/.
 
 # wm
 # cp -v ~/.xmobarrc ~/dotfiles/.

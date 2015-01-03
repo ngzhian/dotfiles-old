@@ -14,6 +14,7 @@ cp -rv ~/dotfiles/.vim/colors ~/.vim/
 
 # git
 cp -v ~/dotfiles/.gitconfig ~/.
+cp -v ~/dotfiles/.gitignore ~/.
 
 # x
 cp -v ~/dotfiles/.xinitrc ~/.
