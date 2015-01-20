@@ -8,7 +8,7 @@ call vundle#begin()
 
 Plugin 'SirVer/ultisnips'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'airblade/vim-gitgutter'
+" Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
@@ -126,5 +126,8 @@ set wildignore+=*.pyc
 " For ctrlp
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
-" Fro vim-gitgutter
+" For vim-gitgutter
 let g:gitgutter_realtime = 0
+
+" For Syntastic in python files
+let g:syntastic_python_checkers = ['python', 'pyflakes', 'pep8']
