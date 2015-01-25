@@ -35,7 +35,8 @@ let mapleader = ","
 " opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
 :nmap <Leader>v :e $MYVIMRC<cr>
 
-colorscheme wombat256mod " awesome color scheme
+set background=dark " Setting dark mode
+colorscheme gruvbox
 set t_Co=256 " set terminal colors to 256
 
 set smartindent
