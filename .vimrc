@@ -20,6 +20,7 @@ Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
+Plugin 'Raimondi/delimitMate'
 
 " ultisnips snippets
 Plugin 'honza/vim-snippets'
