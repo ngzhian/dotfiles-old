@@ -22,6 +22,5 @@ cp -v ~/dotfiles/.xinitrc ~/.
 cp -v ~/dotfiles/.Xresources ~/.
 
 # tmux
-cp -v ~/.tmux.conf ~/dotfiles/.
 cp -v ~/dotfiles/.tmux.conf ~/.tmux.conf
 
