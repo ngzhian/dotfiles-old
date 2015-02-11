@@ -10,6 +10,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'Valloric/YouCompleteMe'
 " Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
+Bundle 'christoomey/vim-tmux-navigator'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 " Plugin 'klen/python-mode' " runs slow on my com, disable it
