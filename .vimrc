@@ -95,8 +95,8 @@ set hidden
 " Note that this requires terminal to ignore Ctrl-S
 " for most terminal just add this to your .bashrc
 "     stty -ixon
-nnoremap <C-S> :<C-u>update<CR>
-inoremap <c-s> <c-o>:update<CR>
+" nnoremap <C-S> :<C-u>update<CR>
+" inoremap <c-s> <c-o>:update<CR>
 
 " NERDTree config
 let NERDTreeChDirMode=2
