@@ -8,7 +8,7 @@ call vundle#begin()
 
 Plugin 'SirVer/ultisnips'
 Plugin 'Valloric/YouCompleteMe'
-" Plugin 'airblade/vim-gitgutter'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Bundle 'christoomey/vim-tmux-navigator'
 Plugin 'gmarik/Vundle.vim'
