@@ -61,7 +61,7 @@ nnoremap k gk
 set hlsearch " highlight all matches of a search
 set incsearch " searches as you type
 
-set list listchars=tab:»·,trail:·,extends:>,precedes:<
+set list listchars=tab:>-,trail:.,extends:>,precedes:<
 
 " Turns off highlight using this key map
 map <C-c> :noh<cr>
