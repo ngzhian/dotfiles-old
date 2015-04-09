@@ -6,7 +6,7 @@ alias ll='ls -lAh'
 #alias l='ls -CF'
 
 # alias for Git
-alias g='git'
+alias g='git st'
 alias grb='git rebase -i'
 
 # tmux
