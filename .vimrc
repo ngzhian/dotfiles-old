@@ -78,10 +78,6 @@ set ignorecase smartcase
 " disable folding for markdown files
 let g:vim_markdown_folding_disabled=1
 
-" highlight certain columns
-set colorcolumn=80,120
-:hi ColorColumn ctermbg=238 " set it to light grey
-
 " shortcuts for buffer manipulation
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
