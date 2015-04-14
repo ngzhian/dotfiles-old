@@ -59,6 +59,9 @@ fi
 
 # for displaying git information
 source ~/bin/.git-prompt.sh
+export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWUPSTREAM=1
 
 # from https://wiki.archlinux.org/index.php/Color_Bash_Prompt
 set_prompt () {
@@ -77,20 +80,20 @@ set_prompt () {
   # If it was successful, print a green check mark. Otherwise, print
   # a red X.
   if [[ $Last_Command == 0 ]]; then
-    PS1+="$Green$Checkmark "
+    PS1+="$Green"
   else
-    PS1+="$Red\$? $FancyX "
+    PS1+="$Red\$? "
   fi
   # If root, just print the host in red. Otherwise, print the current user
   # and host in green.
   if [[ $EUID == 0 ]]; then
     PS1+="$Red\\h "
   else
-    PS1+="$Green\\u@\\h "
+    PS1+="$Green\\u "
   fi
   # Print the working directory and prompt marker in blue, and reset
   # the text color to the default.
-  PS1+="$Blue\\w$Reset\$(__git_ps1) $Blue\\\$$Reset "
+  PS1+="$Blue\\W$Reset\$(__git_ps1 \" (%s)\") $Blue\\\$$Reset "
 }
 
 PROMPT_COMMAND='set_prompt'
@@ -178,6 +181,6 @@ fi
 export WORKON_HOME=$HOME/.virtualenvs
 source `which virtualenvwrapper_lazy.sh`
 
-export GIT_PS1_SHOWSTASHSTATE=1
-
-. ~/bin/django_bash_completion
+if [ -f ~/bin/django_bash_completion ]; then
+    . ~/bin/django_bash_completion
+fi
