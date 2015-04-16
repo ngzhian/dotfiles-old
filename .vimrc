@@ -22,6 +22,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'Raimondi/delimitMate'
+Plugin 'benmills/vimux'
 
 " ultisnips snippets
 Plugin 'honza/vim-snippets'
