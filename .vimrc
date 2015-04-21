@@ -10,10 +10,8 @@ Plugin 'SirVer/ultisnips'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
-Bundle 'christoomey/vim-tmux-navigator'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
-" Plugin 'klen/python-mode' " runs slow on my com, disable it
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
@@ -22,7 +20,17 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'Raimondi/delimitMate'
+
+" tmux
 Plugin 'benmills/vimux'
+Bundle 'christoomey/vim-tmux-navigator'
+
+" javascript
+Plugin 'pangloss/vim-javascript'
+
+" python related
+Plugin 'fisadev/vim-isort'
+" Plugin 'klen/python-mode' " runs slow on my com, disable it
 
 " ultisnips snippets
 Plugin 'honza/vim-snippets'
