@@ -56,6 +56,11 @@ set shiftwidth=4
 set expandtab
 set number
 
+augroup myfiletypes
+    autocmd!
+    autocmd FileType javascript setlocal sw=2
+augroup END
+
 set backspace=indent,eol,start "backspace over these
 set cursorline cursorcolumn " precise targetting of words
 set complete=.,w,b,u,U,t,i,d
@@ -109,6 +114,7 @@ let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
 let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
 let NERDTreeShowBookmarks=1
 map <F3> :NERDTreeToggle<CR>
+map <F4> :NERDTreeFind<CR>
 
 " vim-airline config
 
@@ -137,5 +143,6 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 " For vim-gitgutter
 let g:gitgutter_realtime = 0
 
-" For Syntastic in python files
+" Syntastic file checkers config
 let g:syntastic_python_checkers = ['python', 'pyflakes', 'pep8']
+let g:syntastic_javascript_checkers = ['jshint', 'gjslint']
