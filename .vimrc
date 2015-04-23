@@ -59,6 +59,7 @@ set number
 augroup myfiletypes
     autocmd!
     autocmd FileType javascript setlocal sw=2
+    autocmd FileType html setlocal sw=2
 augroup END
 
 set backspace=indent,eol,start "backspace over these
