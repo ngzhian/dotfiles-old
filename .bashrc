@@ -148,10 +148,10 @@ if ! shopt -oq posix; then
 fi
 
 # stop flow control, this is mainly for a <C-s> mapping in Vim
-stty -ixon
+# stty -ixon
 
 # PATH related
-export PATH=$HOME/bin:$PATH
+export PATH=/usr/local/bin:$HOME/bin:$PATH
 export EDITOR=vim
 
 # ssh
