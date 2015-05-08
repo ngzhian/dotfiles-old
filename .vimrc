@@ -46,9 +46,14 @@ let mapleader = ","
 " opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
 :nmap <Leader>v :e $MYVIMRC<cr>
 
-set background=dark " Setting dark mode
-colorscheme gruvbox
+if &term =~ '256color'
+    set t_ut=
+endif
+let base16colorspace=256 " Access colors present in 256 colorspace
+set background=light " Setting dark mode
+colorscheme base16-atelierforest
 set t_Co=256 " set terminal colors to 256
+hi Normal ctermbg=NONE " need this fix for tmux
 
 set smartindent
 set tabstop=4
