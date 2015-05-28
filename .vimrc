@@ -11,7 +11,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'gmarik/Vundle.vim'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
@@ -20,6 +21,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'Raimondi/delimitMate'
+Plugin 'bkad/CamelCaseMotion'
 
 " tmux
 Plugin 'benmills/vimux'
@@ -30,6 +32,7 @@ Plugin 'pangloss/vim-javascript'
 
 " python related
 Plugin 'fisadev/vim-isort'
+Plugin 'jmcantrell/vim-virtualenv'
 " Plugin 'klen/python-mode' " runs slow on my com, disable it
 
 " ultisnips snippets
@@ -123,6 +126,7 @@ map <F3> :NERDTreeToggle<CR>
 map <F4> :NERDTreeFind<CR>
 
 " vim-airline config
+let g:airline_theme='hybrid'
 
 " Gundo
 nnoremap <F5> :GundoToggle<CR>
@@ -145,6 +149,7 @@ set wildignore+=*.pyc
 
 " For ctrlp
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_funky_matchtype = 'path'
 
 " For vim-gitgutter
 let g:gitgutter_realtime = 0
