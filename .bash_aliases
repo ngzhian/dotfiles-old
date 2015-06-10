@@ -10,7 +10,7 @@ alias g='git st'
 alias grb='git rebase -i'
 
 # tmux
-alias tmux='tmux -2'
+alias tmux='tmux -2 -u'
 
 # grep
 alias grep='grep --color=auto'

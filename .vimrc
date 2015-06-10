@@ -35,6 +35,9 @@ Plugin 'fisadev/vim-isort'
 Plugin 'jmcantrell/vim-virtualenv'
 " Plugin 'klen/python-mode' " runs slow on my com, disable it
 
+" less related
+Plugin 'groenewege/vim-less'
+
 " ultisnips snippets
 Plugin 'honza/vim-snippets'
 call vundle#end()
