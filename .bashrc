@@ -184,3 +184,7 @@ source `which virtualenvwrapper_lazy.sh`
 if [ -f ~/bin/django_bash_completion ]; then
     . ~/bin/django_bash_completion
 fi
+
+if [ -f ~/bin/bash_completion_tmux.sh ]; then
+    . ~/bin/bash_completion_tmux.sh
+fi
