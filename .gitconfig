@@ -27,5 +27,6 @@
     dh1 = diff HEAD~1
     pop = stash pop
     list = stash list
+    rdev = rebase develop
 [merge]
     tool = vimdiff

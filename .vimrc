@@ -52,14 +52,17 @@ let mapleader = ","
 " opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
 :nmap <Leader>v :e $MYVIMRC<cr>
 
-if &term =~ '256color'
-    set t_ut=
-endif
+:nmap <Leader>n :lnext<cr>
+:nmap <Leader>p :lprev<cr>
+
+" if &term =~ '256color'
+    " set t_ut=
+" endif
 let base16colorspace=256 " Access colors present in 256 colorspace
 set background=light " Setting dark mode
 colorscheme base16-atelierforest
-set t_Co=256 " set terminal colors to 256
-hi Normal ctermbg=NONE " need this fix for tmux
+" set t_Co=256 " set terminal colors to 256
+" hi Normal ctermbg=NONE " need this fix for tmux
 
 set smartindent
 set tabstop=4
@@ -71,6 +74,7 @@ augroup myfiletypes
     autocmd!
     autocmd FileType javascript setlocal sw=2
     autocmd FileType html setlocal sw=2
+    autocmd FileType htmldjango setlocal sw=2
 augroup END
 
 set backspace=indent,eol,start "backspace over these
