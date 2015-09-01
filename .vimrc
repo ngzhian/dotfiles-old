@@ -153,6 +153,7 @@ nnoremap <leader>q :bufdo :bd<CR>
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set wildignore+=*.pyc
+set wildignore+=*/node_modules/*
 
 " For ctrlp
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
