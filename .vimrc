@@ -164,7 +164,7 @@ let g:gitgutter_realtime = 0
 
 " Syntastic file checkers config
 let g:syntastic_python_checkers = ['python', 'pyflakes', 'pep8']
-let g:syntastic_javascript_checkers = ['jshint', 'gjslint']
+let g:syntastic_javascript_checkers = ['jshint', 'gjslint', 'eslint']
 
 " Vimux
 nnoremap <leader>r :VimuxRunLastCommand<CR>
