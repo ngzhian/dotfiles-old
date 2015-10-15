@@ -58,7 +58,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 # for displaying git information
-source ~/bin/.git-prompt.sh
+[[ -s ~/bin/.git-prompt.sh]] source ~/bin/.git-prompt.sh
 export GIT_PS1_SHOWSTASHSTATE=1
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUPSTREAM=1
