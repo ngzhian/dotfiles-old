@@ -55,14 +55,9 @@ let mapleader = ","
 :nmap <Leader>n :lnext<cr>
 :nmap <Leader>p :lprev<cr>
 
-" if &term =~ '256color'
-    " set t_ut=
-" endif
 let base16colorspace=256 " Access colors present in 256 colorspace
 set background=light " Setting dark mode
 colorscheme base16-atelierforest
-" set t_Co=256 " set terminal colors to 256
-" hi Normal ctermbg=NONE " need this fix for tmux
 
 set smartindent
 set tabstop=4
@@ -140,9 +135,7 @@ nnoremap <F5> :GundoToggle<CR>
 
 " Trigger configuration. Do not use <tab> if you use
 " https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-x><c-x>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger="<c-j>"
 
 " YouCompleteMe
 nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
