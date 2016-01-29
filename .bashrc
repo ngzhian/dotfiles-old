@@ -191,3 +191,15 @@ fi
 if [ -f ~/bin/bash_completion_tmux.sh ]; then
     . ~/bin/bash_completion_tmux.sh
 fi
+
+up () {
+  if [ "$#" -eq 0 ]; then
+    cd ..
+  else
+    TIMES=$1
+    while [ $TIMES -gt 0 ]; do
+      cd ..
+      let TIMES=TIMES-1
+    done                                                                                                                           
+  fi
+}
