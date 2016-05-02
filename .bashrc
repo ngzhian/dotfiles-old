@@ -28,7 +28,7 @@ shopt -s checkwinsize
 #shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
-#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
@@ -37,86 +37,47 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
-  rxvt-unicode-256color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-# force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-    # We have color support; assume it's compliant with Ecma-48
-    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-    # a case would tend to support setf rather than setaf.)
-    color_prompt=yes
-    else
-    color_prompt=
-    fi
-fi
-
-# for displaying git information
-if [[ -s ~/bin/.git-prompt.sh ]]; then
-    source ~/bin/.git-prompt.sh
-fi
-
-export GIT_PS1_SHOWSTASHSTATE=1
-export GIT_PS1_SHOWDIRTYSTATE=1
-export GIT_PS1_SHOWUPSTREAM=1
+force_color_prompt=yes
 
 # from https://wiki.archlinux.org/index.php/Color_Bash_Prompt
+P_Black='\[\e[30m\]'
+P_Blue='\[\e[36m\]'
+P_Red='\[\e[31m\]'
+P_Green='\[\e[32m\]'
+P_Reset='\[\e[00m\]'
+TOP="${P_Black}┌$P_Reset"
+BOTTOM="${P_Black}└$P_Reset "
 set_prompt () {
   Last_Command=$? # Must come first!
-  Blue='\[\e[36m\]'
-  White='\[\e[01;37m\]'
-  Red='\[\e[01;31m\]'
-  Green='\[\e[32m\]'
-  Reset='\[\e[00m\]'
-  FancyX='\342\234\227'
-  Checkmark='\342\234\223'
-
-  # Add a bright white exit status for the last command
-  # PS1="$White\$? "
   PS1=
+  PS1+="$TOP"
   # If it was successful, print a green check mark. Otherwise, print
   # a red X.
   if [[ $Last_Command == 0 ]]; then
-    PS1+="$Green"
+    PS1+="──$P_Green "
   else
-    PS1+="$Red\$? "
+    PS1+=" $P_Red\$? "
   fi
   # If root, just print the host in red. Otherwise, print the current user
   # and host in green.
   if [[ $EUID == 0 ]]; then
-    PS1+="$Red\\h "
+    PS1+="$P_Red\\h "
   else
-    PS1+="$Green\\u "
+    PS1+="$P_Green\\u "
   fi
   # Print the working directory and prompt marker in blue, and reset
   # the text color to the default.
-  PS1+="$Blue\\W$Reset\$(__git_ps1 \" (%s)\") $Blue\\\$$Reset "
+  PS1+="$P_Blue\\W$P_Reset\$(__git_ps1 \" (%s)\") $P_Blue\n$BOTTOM\\\$$P_Reset "
 }
 
 PROMPT_COMMAND='set_prompt'
-
-if [ "$color_prompt" = yes ]; then
-    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    PS1=PROMPT_COMMAND
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
 unset color_prompt force_color_prompt
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -125,10 +86,22 @@ if [ -x /usr/bin/dircolors ]; then
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
-    #alias grep='grep --color=auto'
-    #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
 fi
+
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -150,16 +123,27 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# stop flow control, this is mainly for a <C-s> mapping in Vim
-# stty -ixon
-
-# PATH related
-export PATH=/usr/local/bin:$HOME/bin:$PATH
 export EDITOR=vim
+
+export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWUPSTREAM=1
+
+up () {
+  if [ "$#" -eq 0 ]; then
+    cd ..
+  else
+    TIMES=$1
+    while [ $TIMES -gt 0 ]; do
+      cd ..
+      let TIMES=TIMES-1
+    done
+  fi
+}
 
 # ssh
 SSH_ENV=$HOME/.ssh/environment
-   
+
 # start the ssh-agent
 function start_agent {
   echo "Initializing new SSH agent..."
@@ -179,27 +163,3 @@ if [ -f "${SSH_ENV}" ]; then
 else
   start_agent;
 fi
-
-# virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-source `which virtualenvwrapper_lazy.sh`
-
-if [ -f ~/bin/django_bash_completion ]; then
-    . ~/bin/django_bash_completion
-fi
-
-if [ -f ~/bin/bash_completion_tmux.sh ]; then
-    . ~/bin/bash_completion_tmux.sh
-fi
-
-up () {
-  if [ "$#" -eq 0 ]; then
-    cd ..
-  else
-    TIMES=$1
-    while [ $TIMES -gt 0 ]; do
-      cd ..
-      let TIMES=TIMES-1
-    done                                                                                                                           
-  fi
-}
