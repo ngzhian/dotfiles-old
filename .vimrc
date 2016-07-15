@@ -22,6 +22,8 @@ Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'Raimondi/delimitMate'
 Plugin 'bkad/CamelCaseMotion'
+Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-fugitive'
 
 " tmux
 Plugin 'benmills/vimux'
@@ -73,7 +75,7 @@ augroup myfiletypes
 augroup END
 
 set backspace=indent,eol,start "backspace over these
-set cursorline cursorcolumn " precise targetting of words
+" set cursorline cursorcolumn " precise targetting of words
 set complete=.,w,b,u,U,t,i,d
 
 set scrolloff=5 "keep at least 5 lines above/below
@@ -121,7 +123,7 @@ set hidden
 
 " NERDTree config
 let NERDTreeChDirMode=2
-let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
+let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$', '__pycache__$']
 let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
 let NERDTreeShowBookmarks=1
 map <F3> :NERDTreeToggle<CR>
@@ -161,3 +163,6 @@ let g:syntastic_javascript_checkers = ['jshint', 'gjslint', 'eslint']
 
 " Vimux
 nnoremap <leader>r :VimuxRunLastCommand<CR>
+
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
