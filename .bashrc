@@ -163,3 +163,7 @@ if [ -f "${SSH_ENV}" ]; then
 else
   start_agent;
 fi
+
+genctags() {
+    ctags --recurse --exclude=idl --exclude=migrations --exclude=*.json --exclude=*.js --exclude=*.css --exclude=*.scss --exclude=*.less --exclude=*.JSON
+}
